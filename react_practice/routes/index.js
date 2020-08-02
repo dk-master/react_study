@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const config = require("../config/database");
 mongoose.connect(config.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true,useFindAndModify:false})
@@ -13,7 +12,5 @@ router.get('/', function(req, res, next) {
 });
 
 router.use('/auth', require('./auth'));
-router.use(bodyParser.urlencoded({extended: true}));
-router.use(bodyParser.json());
 
 module.exports = router;
