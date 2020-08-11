@@ -18,7 +18,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-
+app.get('/api/hello', (req,res) => {
+  res.send("안녕하세요~");
+})
 
 // error handler
 app.use(function(err, req, res, next) {
